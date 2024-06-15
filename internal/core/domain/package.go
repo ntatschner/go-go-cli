@@ -8,11 +8,6 @@ const (
     Detection   RuleType = "detection"
 )
 
-// Rule interface for different types of application rules.
-type Rule interface {
-    Apply() bool // Simplified for demonstration
-}
-
 // MobileApp represents the configuration for a mobile application.
 type MobileApp struct {
     DisplayName                  string
@@ -88,3 +83,55 @@ func (g *GraphSDKAdapter) CreateMobileApp(app MobileApp) error {
     // Convert domain.MobileApp to graphmodels.MobileApp and use the SDK to create the app.
     return nil
 }
+
+// PublishingState represents the state of publishing for the mobile app.
+type PublishingState string
+
+const (
+    Processing PublishingState = "processing"
+    Published  PublishingState = "published"
+    Failed     PublishingState = "failed"
+)
+
+// WindowsArchitecture defines the supported architectures for the app.
+type WindowsArchitecture string
+
+const (
+    X86   WindowsArchitecture = "x86"
+    X64   WindowsArchitecture = "x64"
+    ARM   WindowsArchitecture = "arm"
+    ARM64 WindowsArchitecture = "arm64"
+)
+
+// RunAsAccountType defines the type of account to run the app installation as.
+type RunAsAccountType string
+
+const (
+    User  RunAsAccountType = "user"
+    Admin RunAsAccountType = "admin"
+)
+
+// RestartBehavior defines the behavior of device restart during app installation.
+type RestartBehavior string
+
+const (
+    Allow   RestartBehavior = "allow"
+    Suppress RestartBehavior = "suppress"
+    Force   RestartBehavior = "force"
+)
+
+// ReturnCodeType defines the type of return code.
+type ReturnCodeType string
+
+const (
+    Success ReturnCodeType = "success"
+    Failure ReturnCodeType = "failure"
+)
+
+// MsiPackageType defines the type of MSI package.
+type MsiPackageType string
+
+const (
+    PerUser    MsiPackageType = "perUser"
+    PerMachine MsiPackageType = "perMachine"
+)
