@@ -17,3 +17,4 @@ type DetectionRule struct {
 	Path     string            // Path to check for the rule (file path, registry path, etc.)
 	Value    string            // Value to check against in the path (file version, registry value, script output, etc.)
 }
+
